@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>For Mei 💖</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  color: #fff;
+}
+
+.card {
+  background: rgba(255,255,255,0.25);
+  padding: 30px;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff1e50;
+}
+
+#countdown {
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+#message {
+  display: none;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <img src="couple.jpg" alt="Us together">
+
+  <h1>Happy Valentine 💕</h1>
+  <p>ถึง Mei คนเก่งของเรา</p>
+
+  <button onclick="startSurprise()">เริ่มเซอไพรส์ 💌</button>
+
+  <div id="countdown"></div>
+
+  <div id="message">
+    <p>
+      ตั้งแต่วันที่มีเธอเข้ามา  
+      โลกของเราก็อบอุ่นขึ้นแบบที่ไม่เคยเป็นมาก่อน  
+      <br><br>
+      ขอบคุณที่อยู่ข้างกันในทุกวัน  
+      ไม่ว่าเราจะหัวเราะหรือเหนื่อยแค่ไหน  
+      <br><br>
+      เรารักเธอมากนะ Mei 🤍  
+      และอยากจับมือเธอไปแบบนี้…ทุกวาเลนไทน์เลย 🌹
+    </p>
+  </div>
+</div>
+
+<audio id="song">
+  <source src="until-i-found-you.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startSurprise() {
+  const audio = document.getElementById("song");
+  audio.play();
+
+  let time = 10;
+  const cd = document.getElementById("countdown");
+  cd.innerText = time;
+
+  const timer = setInterval(() => {
+    time--;
+    cd.innerText = time;
+    if (time === 0) {
+      clearInterval(timer);
+      cd.style.display = "none";
+      document.getElementById("message").style.display = "block";
+    }
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
